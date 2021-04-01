@@ -1,4 +1,6 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
+import axios from 'axios';
+import * as R from 'ramda';
 
 const StoryElementsContext = createContext();
 
@@ -15,7 +17,11 @@ export const StoryElementsProvider = ({ children }) => {
   const [storyElements, setStoryElements] = useState([]);
 
   useEffect(() => {
-    setStoryElements([]);
+    axios.get('http://localhost:8080/api/v1/story-elements')
+      .then(R.prop('data'))
+      .then(storyElements => {
+        setStoryElements(storyElements);
+      });
   }, []);
 
   const value = {

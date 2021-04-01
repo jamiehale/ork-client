@@ -1,5 +1,5 @@
 import React from 'react';
-import useStoryElements from './hooks/story-elements';
+import useStoryElements from '../hooks/story-elements';
 import StoryElement from './StoryElement';
 
 const StoryElements = () => {

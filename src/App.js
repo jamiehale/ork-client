@@ -1,6 +1,6 @@
 import React from 'react';
 import { StoryElementsProvider } from './hooks/story-elements';
-import StoryElements from './StoryElements';
+import StoryElements from './components/StoryElements';
 
 const App = () => (
   <StoryElementsProvider>
