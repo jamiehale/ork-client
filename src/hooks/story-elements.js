@@ -1,6 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
-import axios from 'axios';
-import * as R from 'ramda';
+import Api from '../api';
 
 const StoryElementsContext = createContext();
 
@@ -17,8 +16,7 @@ export const StoryElementsProvider = ({ children }) => {
   const [storyElements, setStoryElements] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:8080/api/v1/story-elements')
-      .then(R.prop('data'))
+    Api.getStoryElements()
       .then(storyElements => {
         setStoryElements(storyElements);
       });
