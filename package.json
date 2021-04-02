@@ -19,7 +19,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "EXTEND_ESLINT=true eslint src"
+    "lint": "EXTEND_ESLINT=true eslint src",
+    "docker:build": "docker build . -t ork-client:latest"
   },
   "eslintConfig": {
     "extends": [
