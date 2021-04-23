@@ -1,4 +1,5 @@
 import createServer from './server';
+import campaigns from './campaigns';
 import storyElements from './story-elements';
 
 const SERVER_BASE_URL = process.env.REACT_APP_SERVER_BASE_URL || '';
@@ -10,5 +11,6 @@ const v1AuthPath = (basePath) => (path = '') => `${v1BaseUrl}/auth${basePath}${p
 const server = createServer();
 
 export default {
+  ...campaigns(v1AuthPath('/campaigns'), server),
   ...storyElements(v1AuthPath('/story-elements'), server),
 };
