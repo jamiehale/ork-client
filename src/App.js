@@ -1,11 +1,10 @@
 import React from 'react';
-import Campaigns from './components/Campaigns';
 import {
   Switch,
   Route,
   Redirect,
-} from "react-router-dom";
-import Login from './components/Login';
+} from 'react-router-dom';
+import SignIn from './components/SignIn';
 import PrivateRoute from './components/PrivateRoute';
 import Home from './components/Home';
 import NavMenu from './components/NavMenu';
@@ -14,9 +13,8 @@ const App = () => (
   <>
     <NavMenu />
     <Switch>
-      <PrivateRoute path="/app/campaigns" component={Campaigns} />
       <PrivateRoute path="/app/home" component={Home} />
-      <Route exact path="/app/login" component={Login} />
+      <Route exact path="/app/sign-in" component={SignIn} />
       <Route exact path="/app">
         <Redirect to="/app/home" />
       </Route>

@@ -7,7 +7,7 @@ const v1BaseUrl = `${SERVER_BASE_URL}/api/v1`;
 
 const v1AuthPath = (basePath, path = '') => `${v1BaseUrl}/auth${basePath}${path}`;
 
-const loadLibrary = server => () => server.get(v1AuthPath('/stories'));
+const loadStories = server => () => server.get(v1AuthPath('/stories'));
 const loadCampaigns = server => () => server.get(v1AuthPath('/campaigns'));
 
 const useAuthApi = () => {
@@ -15,7 +15,7 @@ const useAuthApi = () => {
   const server = createServer(token);
 
   return {
-    loadLibrary: loadLibrary(server),
+    loadStories: loadStories(server),
     loadCampaigns: loadCampaigns(server),
   };
 };

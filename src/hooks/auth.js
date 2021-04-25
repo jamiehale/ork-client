@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import * as R from 'ramda';
-import { useHistory } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 
 const AuthContext = React.createContext();
 
@@ -18,7 +18,7 @@ export const AuthProvider = ({
   const history = useHistory();
   const [token, setToken] = useState(null);
 
-  const isLoggedIn = !R.isNil(token);
+  const isSignedIn = !R.isNil(token);
 
   useEffect(() => {
     const authToken = localStorage.getItem('authToken');
@@ -35,11 +35,12 @@ export const AuthProvider = ({
 
   const onSignOut = () => {
     setToken(null);
+    localStorage.removeItem('authToken');
     history.push('/');
   };
 
   const value = {
-    isLoggedIn,
+    isSignedIn,
     token,
     onAuth,
     onSignOut,

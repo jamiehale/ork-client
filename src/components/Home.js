@@ -1,15 +1,18 @@
 import React from 'react';
-import useAuth from '../hooks/auth';
+import StoryList from './StoryList';
+import CampaignList from './CampaignList';
+import { StoriesProvider } from '../hooks/stories';
+import { CampaignsProvider } from '../hooks/campaigns';
 
-const Home = () => {
-  const { token } = useAuth();
-  console.log('here?', token);
-
-  return (
-    <>
-      <div>Home</div>
-    </>
-  );
-};
+const Home = () => (
+  <>
+    <StoriesProvider>
+      <StoryList />
+    </StoriesProvider>
+    <CampaignsProvider>
+      <CampaignList />
+    </CampaignsProvider>
+  </>
+);
 
 export default Home;

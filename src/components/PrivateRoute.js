@@ -10,19 +10,19 @@ const PrivateRoute = ({
   path,
   ...rest
 }) => {
-  const { isLoggedIn } = useAuth();
+  const { isSignedIn } = useAuth();
 
   return (
     <Route
       path={path}
       {...rest}
       render={props =>
-        isLoggedIn ? (
+        isSignedIn ? (
           <Component {...props} />
         ) : (
           <Redirect
             to={{
-              pathname: "/app/login",
+              pathname: "/app/sign-in",
               state: { from: props.location }
             }}
           />

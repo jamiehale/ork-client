@@ -1,5 +1,4 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
-import Api from '../api';
 import useAuthApi from './auth-api';
 
 const StoriesContext = createContext();
