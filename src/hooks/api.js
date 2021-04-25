@@ -7,12 +7,14 @@ const v1BaseUrl = `${SERVER_BASE_URL}/api/v1`;
 const v1Path = (basePath, path = '') => `${v1BaseUrl}${basePath}${path}`;
 
 const signIn = server => (username, password) => server.post(v1Path('/sessions'), { username, password });
+const signUp = server => (username, password) => server.post(v1Path('/accounts'), { username, password });
 
 const useApi = () => {
   const server = createServer();
 
   return {
     signIn: signIn(server),
+    signUp: signUp(server),
   };
 };
 

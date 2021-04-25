@@ -16,7 +16,10 @@ const NavMenu = () => {
         {isSignedIn ? (
           <li><button onClick={handleSignOut}>Sign Out</button></li>
         ) : (
-          <li><Link to="/app/sign-in">Sign In</Link></li>
+          <>
+            <li><Link to="/app/sign-in">Sign In</Link></li>
+            <li><Link to="/app/sign-up">Sign Up</Link></li>
+          </>
         )}
       </ul>
     </div>
