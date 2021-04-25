@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link, useRouteMatch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import useStories from '../hooks/stories';
 
 const StoryList = () => {
-  const { url } = useRouteMatch();
   const { stories } = useStories();
 
   const items = stories.map(story => (

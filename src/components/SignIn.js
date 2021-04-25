@@ -16,8 +16,8 @@ const SignIn = () => {
     if (isSignedIn) {
       history.push('/app/home');
     }
-  }, []);
-  
+  }, [isSignedIn, history]);
+
   const handleChangeUsername = e => {
     setUsername(e.target.value);
   };

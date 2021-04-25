@@ -21,7 +21,7 @@ export const CampaignsProvider = ({ children }) => {
       .then(campaigns => {
         setCampaigns(campaigns);
       });
-  }, []);
+  }, [loadCampaigns, setCampaigns]);
 
   const value = {
     campaigns,

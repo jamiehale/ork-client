@@ -18,10 +18,12 @@ const patch = (authToken) => (url, data = {}, config = {}) => axios.patch(url, d
 const put = (authToken) => (url, data = {}, config = {}) => axios.put(url, data, addAuthHeader(authToken, config))
   .then(R.prop('data'));
 
-export default (authToken) => ({
+const createServer = (authToken) => ({
   get: get(authToken),
   post: post(authToken),
   del: del(authToken),
   patch: patch(authToken),
   put: put(authToken),
 });
+
+export default createServer;

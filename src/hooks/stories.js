@@ -19,7 +19,7 @@ export const StoriesProvider = ({ children }) => {
   useEffect(() => {
     loadStories()
       .then(setStories);
-  }, []);
+  }, [loadStories, setStories]);
 
   const createNewStory = useCallback((name) => {
     createStory(name)
