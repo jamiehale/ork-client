@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, useEffect } from 'react';
+import React, { createContext, useState, useContext, useEffect, useCallback } from 'react';
 import useAuthApi from './auth-api';
 
 const StoriesContext = createContext();
@@ -6,25 +6,30 @@ const StoriesContext = createContext();
 const useStories = () => {
   const context = useContext(StoriesContext);
   if (context === undefined) {
-    throw new Error('useStoryElements must be used within a StoriesProvider');
+    throw new Error('useStories must be used within a StoriesProvider');
   }
 
   return context;
 };
 
 export const StoriesProvider = ({ children }) => {
-  const { loadStories } = useAuthApi();
+  const { loadStories, createStory } = useAuthApi();
   const [stories, setStories] = useState([]);
 
   useEffect(() => {
     loadStories()
-      .then(storyElements => {
-        setStories(storyElements);
-      });
+      .then(setStories);
   }, []);
+
+  const createNewStory = useCallback((name) => {
+    createStory(name)
+      .then(() => loadStories())
+      .then(setStories);
+  }, [createStory, loadStories, setStories]);
 
   const value = {
     stories,
+    createNewStory,
   };
 
   return (
