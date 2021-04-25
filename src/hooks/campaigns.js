@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
-import Api from '../api';
+import useAuthApi from './auth-api';
 
 const CampaignsContext = createContext();
 
@@ -13,10 +13,11 @@ const useCampaigns = () => {
 };
 
 export const CampaignsProvider = ({ children }) => {
+  const { loadCampaigns } = useAuthApi();
   const [campaigns, setCampaigns] = useState([]);
 
   useEffect(() => {
-    Api.getCampaigns()
+    loadCampaigns()
       .then(campaigns => {
         setCampaigns(campaigns);
       });
