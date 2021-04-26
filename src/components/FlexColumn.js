@@ -1,10 +1,9 @@
 import styled from 'styled-components';
-import { flexbox } from 'styled-system';
+import Box from './Box';
 
-const FlexColumn = styled.div`
+const FlexColumn = styled(Box)`
   display: flex;
   flex-direction: column;
-  ${flexbox}
 `;
 
 export default FlexColumn;

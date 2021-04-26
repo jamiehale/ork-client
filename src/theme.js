@@ -1,12 +1,54 @@
 const theme = {
   fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
   fontSizes: [12, 14, 16, 20, 24, 36, 48, 80, 96],
+  fontWeights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
+  radii: [0, 2, 4, 16, 9999, '100%'],
+  borders: [
+    0,
+    '1px solid',
+    '2px solid',
+    '4px solid',
+    '8px solid',
+    '16px solid',
+    '32px solid',
+  ],
   colors: {
     greys: [
       '#aaaaaa',
-    ]
-  }
+    ],
+    primary: '#4763ff',
+    black: '#000',
+    blacks: [
+      'rgba(0,0,0,.0125)',
+      'rgba(0,0,0,.025)',
+      'rgba(0,0,0,.05)',
+      'rgba(0,0,0,.1)',
+      'rgba(0,0,0,.2)',
+      'rgba(0,0,0,.3)',
+      'rgba(0,0,0,.4)',
+      'rgba(0,0,0,.5)',
+      'rgba(0,0,0,.6)',
+      'rgba(0,0,0,.7)',
+      'rgba(0,0,0,.8)',
+      'rgba(0,0,0,.9)',
+    ],
+    white: '#fff',
+    whites: [
+      'rgba(255,255,255,.0125)',
+      'rgba(255,255,255,.025)',
+      'rgba(255,255,255,.05)',
+      'rgba(255,255,255,.1)',
+      'rgba(255,255,255,.2)',
+      'rgba(255,255,255,.3)',
+      'rgba(255,255,255,.4)',
+      'rgba(255,255,255,.5)',
+      'rgba(255,255,255,.6)',
+      'rgba(255,255,255,.7)',
+      'rgba(255,255,255,.8)',
+      'rgba(255,255,255,.9)',
+    ],
+  },
 };
 
 export default theme;
