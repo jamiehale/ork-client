@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import * as R from 'ramda';
 import useStories from '../hooks/stories';
+import TextField from './TextField';
 
 const NewStoryDialog = ({
   onOk,
@@ -32,7 +33,7 @@ const NewStoryDialog = ({
         <p>{error}</p>
       )}
       <form onSubmit={handleSubmit}>
-        <input name="name" value={name} onChange={handleChangeName} />
+        <TextField name="name" label="Name" value={name} onChange={handleChangeName} />
         <button>Ok</button>
       </form>
       <button onClick={handleCancel}>Cancel</button>
